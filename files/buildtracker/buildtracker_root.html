@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% from 'buildtracker_macros.html' import buildtracker_table %}
+{% import 'forms.html' as forms %}
+
+{% block content %}
+<h1>Buildtracker</h1>
+
+<form method="get"> <!-- action="http://192.168.3.64:8080/buildtracker"> -->
+    {% if notifications %}
+    <h2>Notifications</h2>
+    <ul class="buildtracker_notifications">
+      {% for msg in notifications %}
+        <li>{{ msg }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ buildtracker_table(builds, form) }}
+</form>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $('#select_all_builds_checkbox').change(function () {
+        $('.select_build_checkbox').prop('checked', $(this).prop('checked'));
+    });
+</script>
+
+{% endblock %}

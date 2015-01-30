@@ -1,0 +1,187 @@
+{% macro buildtracker_build_tr(b, loop=None) %}
+    <tr class="{{ loop.cycle('alt','') if loop }}">
+        <td><input type="checkbox" class="select_build_checkbox" name="selected_builds[]" value="{{ b.number }}" {% if b.selected %}checked{% endif %} /></td>
+        <td><a href="/{{ b.build_url }}">#{{ b.number }}</a></td>
+        <td>{{ b.finished_at }}</td>
+        <!-- <td><a href="/{{ b.builder_url }}">{{ b.builder }}</a></td> -->
+        <td><a href="/{{ b.slave_url }}">{{ b.slavename }}</a></td>
+        <td>{{ b.board }} - {{ b.libc }}</td>
+        <td>{{ software_url(b.package, b.revision) }}</td>
+<!--
+      {%- if b.entropy_tokens %}
+        <td class="align_left"><pre><code>{{ b.entropy_tokens }}</code></pre></td>
+      {% else %}
+        <td>-</td>
+      {% endif %}
+-->
+
+      {%- if b.status %}
+        <td class="failure">failure</td>
+      {% else %}
+        <td class="success">success</td>
+      {% endif %}
+
+      {%- if b.acked %}
+        <td class="skipped">acknowledged</td>
+      {% else %}
+        <td class="retry">unacknowledged</td>
+      {% endif %}
+
+      {%- if b.bug_filed %}
+        <td class="warnings">submitted</td>
+      {% else %}
+        <td class="notstarted">unfiled</td>
+      {% endif %}
+
+        <td>
+            <a href="/logs/{{ b.builder }}/{{ b.tail_log }}" target="_blank">tail</a> &middot;
+            <a href="/logs/{{ b.builder }}/{{ b.full_log }}">full</a> &middot;
+            <a href="/logs/{{ b.builder }}/{{ b.workorder_log }}" target="_blank">config</a> &middot;
+            <a href="/logs/{{ b.builder }}/{{ b.entropy_log }}" target="_blank">entropy</a>
+        </td>
+        <td><a href="http://engservices/cgi-bin/cgit/cgit.cgi/factory.git/log/?h={{ b.branch }}" target="_blank">{{ b.branch }}</a></td>
+        <td>
+          {%- if b.revision %}
+            <a href="http://engservices/cgi-bin/cgit/cgit.cgi/factory.git/commit/?id={{ b.revision }}" title="{{ b.revision }}" target="_blank">{{ b.short_revision }}</a>
+          {% else %}
+            <em>unknown</em>
+          {% endif %}
+        </td>
+        <td>
+            {{ b.reason }}
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro buildtracker_actions_tr(builds, form) %}
+    <tr class="buildtracker_actions">
+        <td colspan="6">
+            &nbsp;
+        </td>
+        <td colspan="6">
+            <em>Search for</em>
+            <select name="keyword_field">
+                <option value="none"
+                    {% if form.keyword_field == "none" %}selected{% endif %}>
+                    --- Field ---
+                </option>
+                <option value="slavename"
+                    {% if form.keyword_field == "slavename" %}selected{% endif %}>
+                    slavename
+                </option>
+                <option value="board"
+                    {% if form.keyword_field == "board" %}selected{% endif %}>
+                    board
+                </option>
+                <option value="package"
+                    {% if form.keyword_field == "package" %}selected{% endif %}>
+                    package
+                </option>
+                <option value="branch"
+                    {% if form.keyword_field == "branch" %}selected{% endif %}>
+                    branch
+                </option>
+            </select>
+            <em>containing</em>
+            <input name="keyword" type="text" value="{{ form.keyword }}" />
+            
+        </td>
+    </tr>
+    <tr class="buildtracker_actions">
+        {%- if builds %}
+        <td colspan="6">
+            <em>With selected</em>
+            <button type="submit" name="action" value="acknowledge">Acknowledge</button>
+            <button type="submit" name="action" value="file-bugs">Acknowledge &amp; File Bugs</button>
+            <button type="submit" name="action" value="reset">Reset</button>
+            <button type="submit" name="action" value="delete">Delete</button>
+        </td>
+        {% endif %}
+        <td colspan="6">
+            <em>Show only</em>
+            <select name="status_filter">
+                <option value="0" 
+                    {% if form.status_filter == 0 %}selected{% endif %}>
+                    --- Status ---
+                </option>
+                <option value="-1" 
+                    {% if form.status_filter == -1 %}selected{% endif %}>
+                    Unacknowledged
+                </option>
+                <option value="1" 
+                    {% if form.status_filter == 1 %}selected{% endif %}>
+                    Acknowledged
+                </option>
+            </select>
+            <select name="result_filter">
+                <option value="0" {% if form.result_filter == 0 %}selected{% endif %}>--- Result ---</option>
+                <option value="-1" {% if form.result_filter == -1 %}selected{% endif %}>Failure</option>
+                <option value="1" {% if form.result_filter == 1 %}selected{% endif %}>Success</option>
+            </select>
+            <em>Limit</em>
+            <input name="limit" type="text" value="{{ form.limit }}" class="buildtracker_small_input_text" />
+            <em>Offset</em>
+            <input name="offset" type="text" value="{{ form.offset }}" class="buildtracker_small_input_text" />
+            <input type="submit" value="Filter" />
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro software_url(sw, rev) %}
+<ul class="software_list">
+  {% if sw %}
+    <a href="http://engservices/cgi-bin/cgit/cgit.cgi/factory.git/commit/?id={{ rev }}" target="_blank">{{ sw }}</a>
+  {% else %}
+    <a href="http://engservices/cgi-bin/cgit/cgit.cgi/factory.git/commit/?id={{ rev }}" target="_blank">&raquo;</a>
+  {% endif %}
+</ul>
+{% endmacro %}
+
+{% macro buildtracker_table(builds, form) %}
+<table class="info">
+    {{ buildtracker_actions_tr(builds, form) }} 
+
+    {%- if builds %}
+        <tr>
+            <th><input type="checkbox" id="select_all_builds_checkbox" name="select_all_builds" /></th>
+            <th>Build #</th>
+            <th>
+                Time
+              {% if form.sort_order == 1 %}
+                <button class="sort_order_symbol" type="submit" name="sort_order" value="-1">(asc)</button>
+              {% elif form.sort_order == -1 %}
+                <button class="sort_order_symbol" type="submit" name="sort_order" value="1">(desc)</button>
+              {% endif %}
+            </th>
+            <!-- <th>Builder</th> -->
+            <th>Slavename</th>
+            <th>Board - LIBC</th>
+            <th>Package</th>
+            <!-- <th>Entropy</th> -->
+            <th>Result</th>
+            <th>Status</th>
+            <th>Bug Report</th>
+            <th>Logs</th>
+            <th>Branch</th>
+            <th>Revision</th>
+            <th>Reason</th>
+        </tr>
+        {% for b in builds %}
+            {{ buildtracker_build_tr(b, loop) }}
+        {% endfor %}
+
+        <!-- {{ buildtracker_actions_tr(builds, form) }} -->
+    {% endif %}
+    
+    
+    {%- if not builds %}
+        <tr>
+            <td colspan="10">
+                <h2>No builds found.</h2>
+                <h3>Try updating or changing the filter settings.</h3>
+            </td>
+        </tr>
+    {% endif %}
+</table>
+{% endmacro %}
+
