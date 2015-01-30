@@ -1,0 +1,19 @@
+hr {
+  display: block;
+  clear: both;
+  border: 0;
+  margin: 1.125em auto 0 auto;
+  padding: 0;
+  width: 55px;
+  height: 23px;
+  text-align: center;
+  background: transparent url("/img/hr.png") top center no-repeat;
+}
+
+.footer {
+  border: 0;
+}
+
+ul {
+  padding-left: 1em;
+}
