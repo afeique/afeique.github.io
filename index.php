@@ -54,9 +54,6 @@
           <p>
             Like Buildbot, the extension uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> for database <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">ORM</a> and <a href="http://jinja.pocoo.org/">Jinja2</a> for templating.
           </p>
-          <p>
-            Only portions of code authored by me are linked below.
-          </p>
           <ul>
             <li><a href="files/buildtracker/root.py" target="_blank">root.py</a> - Python controller that fetches data from PostgreSQL model and prepares it for the view; handles POST submissions to filter builds and file bugs.</li>
             <li><a href="files/buildtracker/webstatus.py" target="_blank">webstatus.py</a> - Interface class that encapsulates the BuildtrackerRoot class above and extends the Buildbot web interface.</li>
