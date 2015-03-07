@@ -46,7 +46,18 @@
 
       <div class="row marketing">
         <div class="col-lg-6">
-          <h4 id="past">Buildtracker</h4>
+          <h4 id="past">Bootman</h4>
+          <h5>2015</h5>
+          <p>
+            Command-line perl script designed to manage kernel images for boot-testing boards connected to board-farm server. Complemented by a web-interface written using <a href="http://webpy.org/">web.py</a>.
+          </p>
+          <ul>
+            <li><a href="files/bootman/main.pl">main.pl</a> - command-line perl script used to manage boards.</li>
+            <li><a href="files/bootman/setup.sh">setup.sh</a> - bash script used to setup kernel images.</li>
+            <li><a href="files/bootman/web.zip">web.zip</a> - web.py interface.</li>
+        </div>
+        <div class="col-lg-6">
+          <h4>Buildtracker</h4>
           <h5>2014</h5>
           <p>
             An extension for the open-source <a href="http://buildbot.net/" target="_blank">Buildbot</a> software. Written mostly in Python with supporting scripts in Bash and Perl. (<a href="files/buildtracker.png" target="_blank">screenshot</a>)
@@ -55,19 +66,22 @@
             Like Buildbot, the extension uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> for database <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">ORM</a> and <a href="http://jinja.pocoo.org/">Jinja2</a> for templating.
           </p>
           <ul>
-            <li><a href="files/buildtracker/root.py" target="_blank">root.py</a> - Python controller that fetches data from PostgreSQL model and prepares it for the view; handles POST submissions to filter builds and file bugs.</li>
+            <li><a href="files/buildtracker/root.py" target="_blank">root.py</a> - Primary python controller.</li>
+            <!--
             <li><a href="files/buildtracker/webstatus.py" target="_blank">webstatus.py</a> - Interface class that encapsulates the BuildtrackerRoot class above and extends the Buildbot web interface.</li>
+            -->
             <li><a href="files/buildtracker/buildtracker_macros.html.src" target="_blank">buildtracker_macros.html</a> - Jinja2 template macros.</li>
+            <!--
             <li><a href="files/buildtracker/buildtracker_root.html.src" target="_blank">buildtracker_root.html</a> - Actual template using above macros.</li>
             <li><a href="files/buildtracker/add_entropy.sh" target="_blank">add_entropy.sh</a> - Bash script to add entropy to workorder configuration.</li>
-            <li><a href="files/buildtracker/add_rdeps.pl" target="_blank">add_rdeps.pl</a> - Perl script to select a random number of reverse dependencies for a given package.</li>
-            <li><a href="files/buildtracker/file-build-failure.pl" target="_blank">file-build-failure.pl</a> - Perl script based on Bugzilla example code to post a bug via XML-RPC.</li>
+            -->
+            <li><a href="files/buildtracker/add_rdeps.pl" target="_blank">add_rdeps.pl</a> - Perl script to select a random number of reverse dependencies.</li>
+            <li><a href="files/buildtracker/file-build-failure.pl" target="_blank">file-build-failure.pl</a> - Perl script to post a bug via XML-RPC.</li>
           </ul>
         </div>
 
         <div class="col-lg-6">
-          
-        <h4>Condenser Microphone</h4>
+          <h4>Condenser Microphone</h4>
           <h5>2014</h5>
 		  <p>
 		    Attempted to design a condenser microphone for a capstone in <em>Sensor System Design</em>, Spring 2014. The <a href="files/capstone/report.pdf">final report</a> closely follows IEEE format and is available <a href="https://github.com/afeique/18510-report" target="_blank">in LaTeX</a>.
