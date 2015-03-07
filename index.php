@@ -49,7 +49,7 @@
           <h4 id="past">Bootman</h4>
           <h5>2015</h5>
           <p>
-            Command-line perl script designed to manage kernel images for boot-testing boards connected to board-farm server. Complemented by a web-interface written using <a href="http://webpy.org/">web.py</a>.
+            Command-line perl script designed to manage kernel images for boot-testing boards connected to board-farm server. Complemented by a web-interface written using <a href="http://webpy.org/" target="_blank">web.py</a>.
           </p>
           <ul>
             <li><a href="files/bootman/main.pl">main.pl</a> - command-line perl script used to manage boards.</li>
