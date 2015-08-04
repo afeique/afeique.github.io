@@ -52,8 +52,9 @@
             Command-line perl script designed to manage kernel images for boot-testing boards connected to board-farm server. Complemented by a web-interface written using <a href="http://webpy.org/" target="_blank">web.py</a>.
           </p>
           <ul>
-            <li><a href="files/bootman/main.pl">main.pl</a> - command-line perl script used to manage boards.</li>
+            <li><a href="files/bootman/main.pl">main.pl</a> - perl script used to manage boards.</li>
             <li><a href="files/bootman/setup.sh">setup.sh</a> - bash script used to setup kernel images.</li>
+			<li><a href="files/bootman/verify.pl">verify.pl</a> - perl script used to aid in taking physical inventory and committing a list of valid boards to the database.</li>
             <li><a href="files/bootman/web.zip">web.zip</a> - web.py interface.</li>
         </div>
         <div class="col-lg-6">
