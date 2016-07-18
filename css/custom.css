@@ -4,11 +4,19 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Roboto Slab', serif;
+  padding-left: 7px;
 }
 
 
 body {
 	font-family: 'Raleway', sans-serif;
+  background:url(../img/acrosstime-small.png) top right no-repeat; background-attachment:fixed;
+}
+
+div.container {
+  background-color: #fff;
+  border-radius: 7px;
+  padding-top: 23px;
 }
 
 p.lead {

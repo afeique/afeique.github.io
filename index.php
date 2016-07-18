@@ -36,16 +36,22 @@
         <p class="lead">
 			I am a programmer, engineer, mathematologer, ponderer, wonderer, wanderer, philosopher, writer, 
 			photographer, videographer, guitarist, singer, manual driver,
-			hex-loving, html-dreaming, bit-banging, base-2 junkie.
+			hex-loving, physics-attuned, html-dreaming, bit-banging, base-2 junkie.
 			<br />
 			<br />
 			I am a
+			<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">css</a> slurper,
+			<a href="https://en.wikipedia.org/wiki/The_C_Programming_Language" target="_blank">c</a>-believer,
+			<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">object-oriented</a>,
+			memory manipulating,
+			<a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">Kernighan and Ritchie</a> fanatic,
 			<a href="https://jquery.com/" target="_blank">jquery</a> consumerist,
 			<a href="http://www.vim.org/" target="_blank">vim</a> enthusiast, 
 			<a href="https://www.sublimetext.com/">sublime</a> lover, 
 			<a href="https://git-scm.com/" target="_blank">git</a> backer-upper, 
 			<a href="http://python.org/" target="_blank">python</a> slytherin,
-			<a href="https://secure.php.net/" target="_blank">php</a> MVC mason, 
+			<a href="https://secure.php.net/" target="_blank">php</a> MVC mason,
+			<a href="https://www.perl.org/" target="_blank">perl</a> jammer,
 			<a href="https://dev.mysql.com/" target="_blank">mysqlist</a>,
 			<a href="https://www.postgresql.org/" target="_blank">pro-postgresqler</a>
 			and genuine <u>everyman</u>.
@@ -62,10 +68,13 @@
 			<li>photo capturing,</li> 
 			<li>music making,</li> 
 			<li>linux tinkering, 
-			<li>programming,</li> 
+			<li>programming,</li>
+			<li>logic-ocd.</li>
 		</ul>
 		<p class="lead">
-			and the countless combinations therewithin. <br />
+			and the countless combinations therewithin. 
+			<br />
+			<br />
 			To learn how I can be of service to you or your organization, don't hesitate to contact me.
         </p>
         <br />
@@ -213,7 +222,8 @@
           "Nowadays most people die of a sort of creeping common sense, and discover when it is too late that the only things one never regrets are one's mistakes."&mdash;from <em>The Picture of Dorian Gray</em> by Oscar Wilde
         </p>
         <p>
-          <em>2014 &ndash; <?=date('Y')?></em>
+          <em>2014 &ndash; <?=date('Y')?></em><br />
+          <a href="https://github.com/afeique/afeique.com" target="_blank">source code</a>
         </p>
       </div>
       
