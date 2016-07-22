@@ -14,7 +14,14 @@
 <!-- SOURCE: http://getbootstrap.com/examples/jumbotron-narrow/ -->
 <link href="css/jumbotron-narrow.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
-
+<style type="text/css">
+  body {
+    font-family: 'Raleway', sans-serif;
+    background-image: url('/img/acrosstime-small.png');
+    background-position: <?php echo rand(0,50); ?>% <?php echo rand(0,50); ?>%;
+    background-attachment: fixed;
+  }
+</style>
 
 <title>afeique sheikh's digital portfolio (ﾉ◕ヮ◕)ﾉ</title>
 <!--
@@ -44,8 +51,8 @@
 			<a href="https://en.wikipedia.org/wiki/The_C_Programming_Language" target="_blank">c</a>-believer,
 			<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">object-oriented</a>,
 			memory manipulating,
-			<a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">Kernighan and Ritchie</a> fanatic,
-			<a href="https://jquery.com/" target="_blank">jquery</a> consumerist,
+			<a href="https://en.wikipedia.org/wiki/The_C_Programming_Language">Kernighan and Ritchie</a> fanatic;
+			a <a href="https://jquery.com/" target="_blank">jquery</a> consumerist,
 			<a href="http://www.vim.org/" target="_blank">vim</a> enthusiast, 
 			<a href="https://www.sublimetext.com/">sublime</a> lover, 
 			<a href="https://git-scm.com/" target="_blank">git</a> backer-upper, 
