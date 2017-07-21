@@ -3917,3 +3917,12 @@
 			}
 
 		}
+
+
+	section ul {
+		margin-bottom: 1em;
+	}
+
+	section ul li {
+		list-style: square;
+	}
