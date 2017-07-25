@@ -3923,6 +3923,6 @@
 		margin-bottom: 1em;
 	}
 
-	section ul li {
+	section#two section ul li {
 		list-style: square;
 	}
